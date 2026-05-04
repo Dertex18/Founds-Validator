@@ -3,19 +3,27 @@ package app;
 import java.util.Scanner;
 
 public class Account {
-    double balance;
+    private double balance;
 
 
-    private double getBalance() {
-        return balance; // Наявні кошти на рахунку
-    }
-
-    private void setBalance(double balance) {
+    public Account(double balance) {
         this.balance = balance;
     }
 
-    private static double calculateBalance(double balance, double withdrawal) {
-        return balance -withdrawal;
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public void withdraw(double amount) throws FundsException {
+        if (amount > balance) {
+            throw new FundsException("Insufficient funds!");
+        } else {
+            this.balance = this.balance - amount;
+        }
     }
 }
 
