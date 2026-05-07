@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ConsoleUI {
 
-    private double getAmount() {
+    private double getAmount(Account account) {
         System.out.printf("Balance is USD %.2f.%n" +
                 "Enter purchase amount, USD: ", account.getBalance());
         Scanner scanner = new Scanner(System.in);
@@ -23,7 +23,7 @@ public class ConsoleUI {
 
     public void run(Account account) {
         try {
-            double amount = getAmount();
+            double amount = getAmount(account);
             account.withdraw(amount);
             System.out.printf("Funds are OK. Purchase paid.%nBalance is USD %.2f", account.getBalance());
         } catch (FundsException | IllegalArgumentException ex) {
