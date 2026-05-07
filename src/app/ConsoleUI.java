@@ -5,12 +5,6 @@ import java.util.Scanner;
 
 public class ConsoleUI {
 
-    private Account account;
-
-    public ConsoleUI(Account account) {
-        this.account = account;
-    }
-
     private double getAmount() {
         System.out.printf("Balance is USD %.2f.%n" +
                 "Enter purchase amount, USD: ", account.getBalance());
